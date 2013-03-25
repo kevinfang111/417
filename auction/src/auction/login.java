@@ -1,0 +1,31 @@
+package auction;
+import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
+import javax.servlet.http.*;
+
+@SuppressWarnings("serial")
+
+public class login extends HttpServlet {
+	public void doGet(HttpServletRequest req, HttpServletResponse resp)
+					throws IOException, ServletException {
+
+		/*String username = req.getParameter("Username");
+		String password = req.getParameter("Password");
+		String forwardTo = null;
+		
+		if (username.equals("kevin") && password.equals("fang")) {
+			forwardTo = "dashboard.jsp";
+		} else {
+			String message = "Invalid Username/Password";
+	       	req.setAttribute("message", message);
+			forwardTo = "login.jsp";
+		}
+		
+		ServletContext sc = getServletContext();
+		RequestDispatcher rd = sc.getRequestDispatcher(forwardTo);
+		rd.forward(req, resp);*/
+	}
+}

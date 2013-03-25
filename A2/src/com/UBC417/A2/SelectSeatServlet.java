@@ -28,5 +28,4 @@ public class SelectSeatServlet extends HttpServlet {
 		RequestDispatcher rd = sc.getRequestDispatcher("/selectSeats.jsp");
 		rd.forward(req, resp);
 	}
-
 }
