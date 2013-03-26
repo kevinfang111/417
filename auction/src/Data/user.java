@@ -28,5 +28,6 @@ public class user {
 	
 	public String username;
 	public String activeBids [];
+	public String activeSell [];
 	public String biddingActivity [];
 }
