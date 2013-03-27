@@ -43,10 +43,6 @@ public class item {
 			if (e.getKey().getName().equals(itemName)){
 				this.itemName = e.getKey().getName();
 				this.itemOwner = (String) e.getProperty("itemOwner");
-				//this.startingBid = Float.parseFloat((String) e.getProperty("startingPrice"));
-				//this.currentBid = Float.parseFloat((String) e.getProperty("currentBid"));
-				//this.timeLeft = Integer.parseInt((String) e.getProperty("startingTime"));
-				
 				this.startingBid = Float.parseFloat(e.getProperty("startingPrice").toString());
 				this.currentBid = Float.parseFloat(e.getProperty("currentBid").toString());
 				this.timeLeft = Integer.parseInt(e.getProperty("startingTime").toString());
