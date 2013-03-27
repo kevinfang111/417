@@ -13,8 +13,6 @@ public class sellPage extends HttpServlet {
 	public void doGet(HttpServletRequest req, HttpServletResponse resp)
 					throws IOException, ServletException {
 
-		/*ServletContext sc = getServletContext();
-		RequestDispatcher rd = sc.getRequestDispatcher("/login.jsp");
-		rd.forward(req, resp);*/
+
 	}
 }

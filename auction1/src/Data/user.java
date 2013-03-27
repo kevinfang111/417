@@ -13,7 +13,7 @@ public class user {
 	}
 	
 	void createNewItem (String itemName) {
-		
+		item items = new item();
 	}
 	
 	String getRecentBiddingActivity (int i) {
