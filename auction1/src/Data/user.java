@@ -9,10 +9,8 @@ import com.google.appengine.api.datastore.Transaction;
 import com.google.appengine.api.datastore.Query.FilterOperator;
 
 public class user {
-	
 	// initialize user object with username provided at login from GUI
-	user (String username) {
-		//check if user exist
+	public user () {
 	}
 	
 	public void createUser (String username) throws EntityNotFoundException {
@@ -29,48 +27,58 @@ public class user {
 		DatastoreService ds = DatastoreServiceFactory.getDatastoreService();
 		Query q = new Query("allUsers");
 		for (Entity e: ds.prepare(q).asIterable()) {
-			if (e.getKey().getName().equals(username)) {
+			//if (e.getKey().getName().equals(username)) {
 				this.username = e.getKey().getName();
 				this.doesUserExist = true;
 				return "welcome! " + e.getKey().getName();
-			} else {
-				return "Please Create Account!";
-			}
+			//} else {
+				//return "Please Create Account!";
+			//}
 		}
 		
 		return "error";
 	}
 	
-	void addBuyHistory(String purchasedItem) {
-		if (this.doesUserExist == true) {
-			Entity buyHistory = new Entity (this.username, purchasedItem);
-			buyHistory.setProperty("buy", purchasedItem);
+	public void addBuyHistory(String purchasedItem, String buyHistoryKey) {
+		//if (this.doesUserExist == true) {
 			DatastoreService ds = DatastoreServiceFactory.getDatastoreService();
+			
+			Entity buyHistory = new Entity ("buy history", buyHistoryKey);
+			buyHistory.setProperty("buy user", this.username);
+			buyHistory.setProperty("buy item", purchasedItem);
+
 			ds.put(buyHistory);
-		}
+		//}
 	}
 	
-	void addSellHistory (String soldItem) {
-		if (this.doesUserExist == true) {
-			Entity sellHistory = new Entity (this.username, soldItem);
-			sellHistory.setProperty("sell", soldItem);
+	public void addSellHistory (String soldItem, String sellHistoryKey) {
+		//if (this.doesUserExist == true) {
 			DatastoreService ds = DatastoreServiceFactory.getDatastoreService();
+			
+			Entity sellHistory = new Entity ("sell history", sellHistoryKey);
+			sellHistory.setProperty("sell user", this.username);
+			sellHistory.setProperty("sell item", soldItem);
+
 			ds.put(sellHistory);
-		}
+		//}
 	}
 	
-	public Iterable<Entity> getBuyHistory () {
-			DatastoreService ds = DatastoreServiceFactory.getDatastoreService();
-			Query q = new Query(this.username).addFilter("buy", FilterOperator.EQUAL, null);
-			return ds.prepare(q).asIterable();
+	public Iterable<Entity> getBuyHistory (String username) {
+		DatastoreService ds = DatastoreServiceFactory.getDatastoreService();
+		Query q = new Query("buy history").addFilter("buy user", FilterOperator.EQUAL, this.username);
+		return ds.prepare(q).asIterable();
 	}
 	
 	public Iterable<Entity> getSellHistory (String username) {
-			DatastoreService ds = DatastoreServiceFactory.getDatastoreService();
-			Query q = new Query(this.username).addFilter("sell", FilterOperator.EQUAL, null);
-			return ds.prepare(q).asIterable();
+		DatastoreService ds = DatastoreServiceFactory.getDatastoreService();
+		Query q = new Query("sell history").addFilter("sell user", FilterOperator.EQUAL, this.username);
+		return ds.prepare(q).asIterable();
+	}
+	
+	public void deleteUser () {
+		
 	}
 	
 	public static String username;
-	boolean doesUserExist = false;
+	boolean doesUserExist = false;	
 }

@@ -1,0 +1,22 @@
+package Data;
+import javax.jdo.annotations.PersistenceCapable;
+import javax.jdo.annotations.Persistent;
+import javax.jdo.annotations.PrimaryKey;
+import javax.jdo.annotations.IdGeneratorStrategy;
+import com.google.appengine.api.datastore.Key;
+import Data.user;
+
+@PersistenceCapable
+public class userHistory {
+    @PrimaryKey
+    @Persistent(valueStrategy = IdGeneratorStrategy.IDENTITY)
+    private Key key;
+    
+    @Persistent (mappedBy = "userHistory")
+    private user userInfo;    
+    
+    private String bidHistory [];
+    private String sellHistory [];
+    
+    public userHistory
+}

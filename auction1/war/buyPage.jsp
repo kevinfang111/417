@@ -32,10 +32,6 @@
 	item item1 = new item();
 %>
 <br>Item Name: <%=item1.queryItem("item1000") %></br>
-<br>Current Bid: <%=item1.getCurrentBid()%></br>
-<br>Item Owner: <%=item1.getItemOwner() %></br>
-<br>Starting Bid: <%=item1.getstartingBid() %></br>
-<br>Time Left: <%=item1.getTimeLeft() %></br>
 
 <br>Your current bidding<p>
 

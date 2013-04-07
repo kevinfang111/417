@@ -29,15 +29,34 @@
 
 <p>Selling Board</p>
 
+Creating Item:
 <%	
 	item item1 = new item();
-	item1.createItem("item1000", "Kevin",  10000, 10);
+	item1.createItem("item 1", "Kevin",  "itemID000", "This is a description of the item",1000, 10);
 %>
+
+<br><% item1.queryItem("item 1"); %></br>
+
+Create Auction:
+<%item1.createAuction(item1.getItemID(), 10, 11, "auctionID000"); %>
+<%item1.createAuction(item1.getItemID(), 10, 11, "auctionID001"); %>
+<%item1.createAuction(item1.getItemID(), 10, 11, "auctionID002"); %>
+<%item1.createAuction(item1.getItemID(), 10, 11, "auctionID003"); %>
+<%item1.createAuction(item1.getItemID(), 10, 11, "auctionID004"); %>
+<% Iterable <Entity> ent = item1.getAuctionList();
+	for (Entity e: ent) {%>
+		<br><%= e.getKey().getName() %></br>
+	<% }
+%>
+
+Bid Item
+<%item1.createBid(item1.getAuctionID(), "Kevin", 100, "bidID000"); %>
   <form action="/sellConfirmation.jsp" method="post">
     <div><input type="submit" value="Confirm to Sell" /></div>
   </form>
-  
-<p>Your common<p>
+ 
+ 
+<p>Your comments<p>
 
 
 <p>rating <p>

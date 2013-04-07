@@ -2,4 +2,11 @@
 <qualifiedTypeNameHistroy>
 <fullyQualifiedTypeName name="Data.item"/>
 <fullyQualifiedTypeName name="Data.timer"/>
+<fullyQualifiedTypeName name="javax.jdo.annotations.PersistenceCapable"/>
+<fullyQualifiedTypeName name="javax.jdo.annotations.PrimaryKey"/>
+<fullyQualifiedTypeName name="javax.jdo.annotations.Persistent"/>
+<fullyQualifiedTypeName name="Data.user"/>
+<fullyQualifiedTypeName name="Data.userHistory"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="java.lang.Integer"/>
 </qualifiedTypeNameHistroy>
