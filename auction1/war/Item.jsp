@@ -11,10 +11,22 @@
 <link href="Site.css" rel="Stylesheet" type="text/css"/>
 </head>
 <body>
-	<form action="makebid" method="post">
+	<form action="makeBid.jsp" method="post">
 		<br> Name:         <br/> 
 		<br> Description: <br/>
-		<input type="submit" value="Make Bit"/>
+		<br></br>
+		<input type="submit" value="Make Bid"/>
 	</form>
+	
+	<br></br>
+	<b>Previous Comments:</b>
+	
+	<br></br>
+	<form action="item.jsp" method="post">
+		<br> comment: <input type="text" id="comment" name="comment" /><br/> 
+		<br></br>
+		<input type="submit" value="comment"/>
+	</form>
+	
 </body>
 </html>

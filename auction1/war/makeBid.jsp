@@ -11,7 +11,7 @@
 <link href="Site.css" rel="Stylesheet" type="text/css"/>
 </head>
 <body>
-	<form action="confirmbid" method="post">
+	<form action="confirmBid.jsp" method="post">
 		Enter Your Bidding Price:
 		<br><input type="text" name="price"/><br/>
 		<input type="submit" value="place the bid"/>

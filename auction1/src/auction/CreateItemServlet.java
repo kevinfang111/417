@@ -19,11 +19,13 @@ public class CreateItemServlet extends HttpServlet {
 		String price = req.getParameter("price");
 		
 		java.util.Date date= new java.util.Date();
-		String itemID = "item" + new Timestamp(date.getTime()).toString();
+		String itemID = "item"; //+ new Timestamp(date.getTime()).toString();
 		
 		item Item = new item ();
 		Item.createItem(itemName, user, itemID, description, price);
+		
 		req.getSession().setAttribute("item ID", itemID);
+		
 		req.getRequestDispatcher("createAuction.jsp").forward(req, resp);
 	}
 	
@@ -35,11 +37,12 @@ public class CreateItemServlet extends HttpServlet {
 		String price = req.getParameter("price");
 		
 		java.util.Date date= new java.util.Date();
-		String itemID = "item" + new Timestamp(date.getTime()).toString();
+		String itemID = "item"; //+ new Timestamp(date.getTime()).toString();
 		
 		item Item = new item ();
 		Item.createItem(itemName, user, itemID, description, price);
-		req.getSession().setAttribute("item ID", itemID);
+		
+		req.getSession().setAttribute("itemID", itemID);
 		req.getRequestDispatcher("createAuction.jsp").forward(req, resp);
 	}
 }

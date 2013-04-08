@@ -1,0 +1,22 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<%@ page import="Data.queryItems"  %>
+<%@ page import="java.util.*"  %>
+<%@ page import="com.google.appengine.api.datastore.DatastoreServiceFactory" %>
+<%@ page import="com.google.appengine.api.datastore.DatastoreService"%>
+<%@ page import="com.google.appengine.api.datastore.Query" %>
+<%@ page import="Data.user" %>
+<%@ page import="com.google.appengine.api.datastore.Entity"%>
+
+<html>
+	<title>
+		Queried Results
+	</title>
+	
+	<b>Queried Results</b>
+
+<%= request.getSession().getAttribute("query").toString()%>
+
+
+
+</html>
