@@ -1,0 +1,24 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page import="java.util.List" %>
+<%@ page import="Data.user" %>
+<%@ page import="java.io.PrintWriter" %>
+
+<html>
+	<title>
+		Login
+	</title>
+	
+
+      <input type="text" id="username" name="username" />
+      <input type="submit" value="Submit" />
+
+
+<%
+	
+    /*String username = request.getParameter("username");
+	PrintWriter output = response.getWriter();
+	output.println(username);*/
+%>
+</html>
+
+

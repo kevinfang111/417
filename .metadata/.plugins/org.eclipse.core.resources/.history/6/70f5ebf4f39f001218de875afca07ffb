@@ -1,0 +1,27 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<%@ page import="Data.user"  %>
+
+<html>
+	<title>
+		Dashboard
+	</title>
+	
+	<b>DashBoard</b>
+	<br></br>
+	
+	<form action="createItem.jsp" method="post">
+		<input type="text" id="searchItems" name="searchItems"/> 
+		<input type="submit" value="Search"/>
+	</form>
+	
+	<b>Activity History: </b>	
+	<% 
+	String user = request.getSession().getAttribute("user").toString();
+	user u = new user();
+	
+	u.getBuyHistory(user);
+	u.getSellHistory(user);
+	%>
+	
+</html>

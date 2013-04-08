@@ -1,0 +1,36 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<%@ page import="Data.user"  %>
+<%@ page import="java.util.*"  %>
+<%@ page import="com.google.appengine.api.datastore.DatastoreServiceFactory" %>
+<%@ page import="com.google.appengine.api.datastore.DatastoreService"%>
+<%@ page import="com.google.appengine.api.datastore.Query" %>
+<%@ page import="Data.item" %>
+<%@ page import="com.google.appengine.api.datastore.Entity"%>
+<html>
+	<title>
+		Create Auction
+	</title>
+	
+	<b>Create Auction</b>
+
+<br></br>
+<br>Item Info: </br>
+
+<% 
+	//item Item = new item();
+	//String itemID = request.getSession().getAttribute("item ID").toString(); 
+%>	
+
+<%=request.getSession().getAttribute("item ID")%>
+
+<br></br>
+<br>Auction Info:</br>
+
+<form action ="dashboard.jsp" method="post" >
+	Start Time: <input type="text" id="start time" name="start time" />
+	End Time: <input type="text" id="end time" name="end time" />
+	<input type="submit" value="Start Auction" />
+</form>
+
+</html>

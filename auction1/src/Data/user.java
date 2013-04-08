@@ -27,13 +27,13 @@ public class user {
 		DatastoreService ds = DatastoreServiceFactory.getDatastoreService();
 		Query q = new Query("allUsers");
 		for (Entity e: ds.prepare(q).asIterable()) {
-			//if (e.getKey().getName().equals(username)) {
+			if (e.getKey().getName().equals(username)) {
 				this.username = e.getKey().getName();
 				this.doesUserExist = true;
 				return "welcome! " + e.getKey().getName();
-			//} else {
-				//return "Please Create Account!";
-			//}
+			} else {
+				return "none";
+			}
 		}
 		
 		return "error";

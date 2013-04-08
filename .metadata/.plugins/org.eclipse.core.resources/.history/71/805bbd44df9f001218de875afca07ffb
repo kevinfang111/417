@@ -1,0 +1,25 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page import="java.util.List" %>
+<%@ page import="com.google.appengine.api.users.User" %>
+<%@ page import="com.google.appengine.api.users.UserService" %>
+<%@ page import="com.google.appengine.api.users.UserServiceFactory" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
+<html>
+	<title>
+		Login
+	</title>
+	
+	<form action="dashboard.jsp" method="POST">
+      <input type="text" id="username" name="username" />
+      <input type="submit" value="Submit" />
+    </form>
+
+<%
+    String username = request.getParameter("username");
+	
+	
+%>
+</html>
+
+

@@ -1,0 +1,14 @@
+<html>
+	<title>
+		Dashboard
+	</title>
+	
+	<form action="createItem.jsp" method="post">
+		<input type="text" id="searchItems" name="searchItems"/> 
+		<input type="submit" value="Search"/>
+	</form>
+	
+	<br></br>
+	<br></br>
+	
+</html>

@@ -16,13 +16,12 @@ public class item {
 	}
 	
 	// populates general information from the user
-	public void createItem (String itemName, String itemOwner, String itemID, String description, float startingPrice, int startingTime) {
+	public void createItem (String itemName, String itemOwner, String itemID, String description, String price) {
 		Entity e = new Entity("item", itemID);
 		e.setProperty("item name", itemName);
 		e.setProperty("itemOwner", itemOwner);
-		e.setProperty("startingPrice", startingPrice);
-		e.setProperty("startingTime", startingTime);
 		e.setProperty("description", description);
+		e.setProperty("price", price);
 		
 		DatastoreService ds = DatastoreServiceFactory.getDatastoreService();
 		ds.put(e);
@@ -30,8 +29,6 @@ public class item {
 		this.itemID = itemID;
 		this.itemName = itemName;
 		this.itemOwner = itemOwner;
-		this.startingBid = startingPrice;
-		this.timeLeft = startingTime;
 	}
 	
 	public void createAuction (String itemID, int startTime, int endTime, String AuctionID) {
@@ -85,14 +82,14 @@ public class item {
 	}
 	
 	// populates general information from database for 1 item
-	public String queryItem (String itemName) {
+	public String queryItem (String itemID) {
 		DatastoreService ds = DatastoreServiceFactory.getDatastoreService();
 		Query q = new Query("item");
 		
 		Iterable<Entity> itemList = (Iterable<Entity>) ds.prepare(q).asIterable();
 		
 		for (Entity e: itemList) {
-			if (e.getKey().getName().equals(itemName)){
+			if (e.getKey().getName().equals(itemID)){
 				this.itemID = e.getKey().getName();
 				this.itemOwner = (String) e.getProperty("itemOwner");
 				this.startingBid = Float.parseFloat(e.getProperty("startingPrice").toString());

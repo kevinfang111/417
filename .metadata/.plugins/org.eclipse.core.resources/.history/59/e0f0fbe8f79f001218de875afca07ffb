@@ -1,0 +1,46 @@
+package auction;
+import java.io.IOException;
+import Data.item;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
+import javax.servlet.http.*;
+import java.sql.Timestamp;
+import java.util.Date;
+
+@SuppressWarnings("serial")
+
+public class CreateItemServlet extends HttpServlet {
+	public void doGet(HttpServletRequest req, HttpServletResponse resp)
+					throws IOException, ServletException {
+		String user = req.getSession().getAttribute("user").toString();
+		String itemName = req.getParameter("itemName");
+		String description = req.getParameter("description");
+		String price = req.getParameter("price");
+		
+		java.util.Date date= new java.util.Date();
+		String itemID = "item" + new Timestamp(date.getTime()).toString();
+		
+		System.out.println("itemID: " + itemID);
+		
+		item Item = new item ();
+		
+		Item.createItem(itemName, user, itemID, description);
+		
+		req.getRequestDispatcher("createAuction.jsp").forward(req, resp);
+	}
+	
+	public void doPost(HttpServletRequest req, HttpServletResponse resp)
+			throws IOException, ServletException {
+		String user = req.getSession().getAttribute("user").toString();
+		String itemName = req.getParameter("itemName");
+		String description = req.getParameter("description");
+		String price = req.getParameter("price");
+
+		item Item = new item ();
+		
+		Item.createItem(itemName, user, itemID, description);
+		
+		req.getRequestDispatcher("createAuction.jsp").forward(req, resp);
+	}
+}
